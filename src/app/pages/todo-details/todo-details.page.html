@@ -10,10 +10,10 @@
 <ion-content>
   <ion-list lines="full">
     <ion-item>
-      <ion-input required type="text" placeholder="Task" [(ngModel)]="todo.task"></ion-input>
+      <ion-input required type="text" placeholder="Task" [(ngModel)]="todo.titulo"></ion-input>
     </ion-item>
     <ion-item>
-        <ion-input required type="text" placeholder="Priority" [(ngModel)]="todo.priority"></ion-input>
+        <ion-input required type="text" placeholder="Priority" [(ngModel)]="todo.descripcion"></ion-input>
       </ion-item>
   </ion-list>
   <ion-button expand="full" (click)="saveTodo()">Save</ion-button>

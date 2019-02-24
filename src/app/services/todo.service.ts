@@ -5,9 +5,10 @@ import {map} from 'rxjs/operators';
 
 export interface Todo{
   id?: string;
-  task: string;
-  priority: number;
-  createdAt: number;
+  titulo: string;
+  descripcion: string;
+  fecha: number;
+  gradoId: string;
 }
 
 @Injectable({
