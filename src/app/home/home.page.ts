@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo, TodoService } from '../services/todo.service';
- 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -18,7 +19,7 @@ export class HomePage implements OnInit {
     });
   }
  
-  remove(item) {
-    this.todoService.removeTodo(item.id);
+  remove(todos) {
+    this.todoService.removeTodo(todos.id);
   }
 }
