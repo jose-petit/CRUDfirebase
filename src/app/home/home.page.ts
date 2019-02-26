@@ -12,7 +12,6 @@ export class HomePage implements OnInit {
 
   constructor(
     private todoService: TodoService,
-    private router: Router
     ) { }
 
   ngOnInit() {
