@@ -1,5 +1,5 @@
+import { Todo, TodoService} from './../../services/todo.service';
 import { Component, OnInit } from '@angular/core';
-import { Todo, TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-home',
@@ -19,8 +19,6 @@ export class HomePage implements OnInit {
   }
  
   remove(todos) {
-    console.log(todos);
     this.todoService.removeTodo(todos.id);
-    console.log(todos.id);
-  }
+    }
 }

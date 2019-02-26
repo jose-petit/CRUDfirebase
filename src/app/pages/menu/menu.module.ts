@@ -36,13 +36,29 @@ const routes: Routes = [
         path: 'quintob',
         loadChildren: '../quintob/quintob.module#QuintobPageModule'
       },
-
+      {
+        path: 'home',
+        loadChildren: '../home/home.module#HomePageModule'
+      },
+      {
+        path: 'todo-details',
+        loadChildren: '../todo-details/todo-details.module#TodoDetailsPageModule'
+      },
+      {
+        path: 'details/:id',
+        loadChildren: '../todo-details/todo-details.module#TodoDetailsPageModule'
+      },
+      {
+        path: 'details',
+        loadChildren: '../todo-details/todo-details.module#TodoDetailsPageModule'
+      },
     ]
   },
   {
      path: '',
-     redirectTo: '/menu/primero'
-  }
+     redirectTo: 'menu/home'
+  },
+
 ];
 
 
