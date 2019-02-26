@@ -9,13 +9,20 @@ import { MenuPage } from './menu.page';
 
 const routes: Routes = [
   {
+    path: '', redirectTo: 'menu/inicio'
+  },
+  {
     path: 'menu',
     component: MenuPage,
-    children : [
+    children: [
+      {
+        path: 'inicio',
+        loadChildren: '../inicio/inicio.module#InicioPageModule'
+      },
       {
         path: 'primero',
         loadChildren: '../primero/primero.module#PrimeroPageModule'
-        },
+      },
       {
         path: 'segundo',
         loadChildren: '../segundo/segundo.module#SegundoPageModule'
@@ -29,23 +36,16 @@ const routes: Routes = [
         loadChildren: '../cuarto/cuarto.module#CuartoPageModule'
       },
       {
-        path: 'quinto',
-        loadChildren: '../quinto/quinto.module#QuintoPageModule'
+        path: 'quinto-a',
+        loadChildren: '../quinto-a/quinto-a.module#QuintoAPageModule'
       },
       {
-        path: 'quintob',
-        loadChildren: '../quintob/quintob.module#QuintobPageModule'
+        path: 'quinto-b',
+        loadChildren: '../quinto-b/quinto-b.module#QuintoBPageModule'
       },
-
     ]
   },
-  {
-     path: '',
-     redirectTo: '/menu/primero'
-  }
 ];
-
-
 
 @NgModule({
   imports: [
@@ -56,4 +56,4 @@ const routes: Routes = [
   ],
   declarations: [MenuPage]
 })
-export class MenuPageModule {}
+export class MenuPageModule { }

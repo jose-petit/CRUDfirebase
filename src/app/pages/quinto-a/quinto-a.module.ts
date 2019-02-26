@@ -5,12 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { QuintoPage } from './quinto.page';
+import { QuintoAPage } from './quinto-a.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: QuintoPage
+    component: QuintoAPage
   }
 ];
 
@@ -21,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [QuintoPage]
+  declarations: [QuintoAPage]
 })
-export class QuintoPageModule {}
+export class QuintoAPageModule {}

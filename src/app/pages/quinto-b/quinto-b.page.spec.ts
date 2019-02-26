@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QuintoPage } from './quinto.page';
+import { QuintoBPage } from './quinto-b.page';
 
-describe('QuintoPage', () => {
-  let component: QuintoPage;
-  let fixture: ComponentFixture<QuintoPage>;
+describe('QuintoBPage', () => {
+  let component: QuintoBPage;
+  let fixture: ComponentFixture<QuintoBPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuintoPage ],
+      declarations: [ QuintoBPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QuintoPage);
+    fixture = TestBed.createComponent(QuintoBPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
