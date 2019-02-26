@@ -43,6 +43,14 @@ const routes: Routes = [
         path: 'quinto-b',
         loadChildren: '../quinto-b/quinto-b.module#QuintoBPageModule'
       },
+     {
+       path: 'details/:id',
+       loadChildren: '../todo-details/todo-details.module#TodoDetailsPageModule'
+      },
+      {
+       path: 'details',
+       loadChildren: '../todo-details/todo-details.module#TodoDetailsPageModule'
+      },
     ]
   },
 ];
