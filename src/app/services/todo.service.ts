@@ -49,7 +49,7 @@ export class TodoService {
     return this.todoCollection.add(todo);
   }
 
-  removeTodo(id) {
+  removeTodo(id: string) {
     return this.todoCollection.doc(id).delete();
   }
 }

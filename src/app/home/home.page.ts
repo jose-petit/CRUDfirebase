@@ -18,7 +18,7 @@ export class HomePage implements OnInit {
     });
   }
 
-  remove(item) {
-    this.todoService.removeTodo(item.id);
+  remove(todo) {
+    this.todoService.removeTodo(todo.id);
   }
 }
