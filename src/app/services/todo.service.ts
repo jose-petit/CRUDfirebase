@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Todo {
@@ -17,12 +17,12 @@ export interface Todo {
 export class TodoService {
   private todoCollection: AngularFirestoreCollection<Todo>;
 
-  private todos: Observable<Todo[]>;
+  private todosSubject$: BehaviorSubject<Todo[]> = new BehaviorSubject([]);
+  private todos$: Observable<Todo[]>;
 
   constructor(db: AngularFirestore) {
     this.todoCollection = db.collection<Todo>('todos');
-
-    this.todos = this.todoCollection
+    this.todos$ = this.todoCollection
       .snapshotChanges()
       .pipe(
         map(actions => {
@@ -33,10 +33,21 @@ export class TodoService {
           });
         })
       );
+    this.todos$.subscribe(
+      (x) => {
+        this.todosSubject$.next(x);
+      },
+      (err: any) => {
+        this.todosSubject$.error(err);
+      },
+      () => {
+        this.todosSubject$.complete();
+      },
+    );
   }
 
   getTodos() {
-    return this.todos;
+    return this.todos$;
   }
 
   getTodo(id) {
@@ -53,5 +64,15 @@ export class TodoService {
 
   removeTodo(id: string) {
     return this.todoCollection.doc(id).delete();
+  }
+
+  /* Todo's filtrados */
+  filteredTodos(filterValue: string): Todo[] {
+    let _filteredTodos = [];
+    this.todosSubject$
+      .subscribe(res => {
+        _filteredTodos = filterValue ? res.filter(todo => todo.gradoId === filterValue) : res;
+      });
+    return _filteredTodos;
   }
 }

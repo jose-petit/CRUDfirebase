@@ -10,45 +10,41 @@
 <ion-content>
   <ion-list lines="full">
     <ion-item>
-        <ion-label position="floating">Titulo de la Nota</ion-label>
+      <ion-label position="floating">Titulo de la Nota</ion-label>
       <ion-input required type="text" placeholder="Titulo" [(ngModel)]="todo.titulo"></ion-input>
     </ion-item>
-      <ion-item>
-        <ion-label position="floating">Descripcion</ion-label>
-        <ion-input required type="text" placeholder="Priority" [(ngModel)]="todo.descripcion"></ion-input>
-      </ion-item>
-  </ion-list>
- 
-  <ion-item>
-      <ion-label position="floating">Fecha</ion-label>
-      <div padding>
-        <ng-container *ngIf="isAndroid;then android else web"></ng-container>
-        <ng-template #android>
-          <ion-button color="success" (click)="openDatePicker()">Seleccionar</ion-button>
-        </ng-template>
-        <ng-template #web>
-          <ion-input type="date" [(ngModel)]="todo.fecha"></ion-input>
-        </ng-template>
-      </div>
-    </ion-item>
-    
     <ion-item>
-      <ion-label>Seleccione Grado</ion-label>
-      <ion-select placeholder="Select One" [(ngModel)]="todo.gradoId">
-        <ion-select-option value="07">7mo</ion-select-option>
-        <ion-select-option value="08">8vo</ion-select-option>
-        <ion-select-option value="09">9no</ion-select-option>
-        <ion-select-option value="10">4to</ion-select-option>
-        <ion-select-option value="11">5to "A"</ion-select-option>
-        <ion-select-option value="12">5to "B"</ion-select-option>
-      </ion-select>
+      <ion-label position="floating">Descripcion</ion-label>
+      <ion-input required type="text" placeholder="Priority" [(ngModel)]="todo.descripcion"></ion-input>
     </ion-item>
-    
-    <p align="center">
-   <ion-button size="small" color="success" (click)="saveTodo()">Guardar Nota</ion-button>
+  </ion-list>
+
+  <ion-item>
+    <ion-label position="floating">Fecha</ion-label>
+    <div padding>
+      <ng-container *ngIf="isAndroid;then android else web"></ng-container>
+      <ng-template #android>
+        <ion-button color="success" (click)="openDatePicker()">Seleccionar</ion-button>
+      </ng-template>
+      <ng-template #web>
+        <ion-input type="date" [(ngModel)]="todo.fecha"></ion-input>
+      </ng-template>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Seleccione Grado</ion-label>
+    <ion-select placeholder="Select One" [(ngModel)]="todo.gradoId">
+      <ion-select-option value="07">7mo</ion-select-option>
+      <ion-select-option value="08">8vo</ion-select-option>
+      <ion-select-option value="09">9no</ion-select-option>
+      <ion-select-option value="10">4to</ion-select-option>
+      <ion-select-option value="11">5to "A"</ion-select-option>
+      <ion-select-option value="12">5to "B"</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <p align="center">
+    <ion-button size="large" color="success" (click)="saveTodo()">Guardar Nota</ion-button>
   </p>
 </ion-content>
-
-
-
-

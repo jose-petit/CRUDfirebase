@@ -16,52 +16,30 @@ const routes: Routes = [
     component: MenuPage,
     children: [
       {
-        path: 'inicio',
+        path: 'details',
+        loadChildren: '../todo-details/todo-details.module#TodoDetailsPageModule'
+      },
+      {
+        path: ':grado',
         loadChildren: '../inicio/inicio.module#InicioPageModule'
       },
       {
-        path: 'primero',
-        loadChildren: '../primero/primero.module#PrimeroPageModule'
+        path: 'details/:id',
+        loadChildren: '../todo-details/todo-details.module#TodoDetailsPageModule'
       },
-      {
-        path: 'segundo',
-        loadChildren: '../segundo/segundo.module#SegundoPageModule'
-      },
-      {
-        path: 'tercero',
-        loadChildren: '../tercero/tercero.module#TerceroPageModule'
-      },
-      {
-        path: 'cuarto',
-        loadChildren: '../cuarto/cuarto.module#CuartoPageModule'
-      },
-      {
-        path: 'quinto-a',
-        loadChildren: '../quinto-a/quinto-a.module#QuintoAPageModule'
-      },
-      {
-        path: 'quinto-b',
-        loadChildren: '../quinto-b/quinto-b.module#QuintoBPageModule'
-      },
-     {
-       path: 'details/:id',
-       loadChildren: '../todo-details/todo-details.module#TodoDetailsPageModule'
-      },
-      {
-       path: 'details',
-       loadChildren: '../todo-details/todo-details.module#TodoDetailsPageModule'
-      },
-    ]
+    ],
   },
 ];
 
 @NgModule({
+  declarations: [
+    MenuPage,
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [MenuPage]
 })
 export class MenuPageModule { }
